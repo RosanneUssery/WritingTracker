@@ -1,0 +1,46 @@
+angular.module('appModule')
+.factory('wordService', function($http) {
+  var service = {};
+
+  var story = [];
+
+  service.index = function() {
+	  return $http({
+		  method : 'GET',
+		  url : 'rest/user/1/story'
+	  });
+  };
+  
+  service.create = function(story) {
+	  console.log(story);
+		return $http({
+			method : 'POST',
+			url : 'rest/user/1/story',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			data : story
+		})
+	};
+	
+	service.destroy = function(story) {
+		return $http({
+			method : 'DELETE',
+			url : 'rest/user/1/story/' + story.id
+		});
+	}
+	
+	service.update = function(story) {
+		console.log(story)
+		return $http({
+			method : 'PUT',
+			url : 'rest/user/1/story/' + story.id,
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			data : story
+		})
+	}
+
+  return service;
+})

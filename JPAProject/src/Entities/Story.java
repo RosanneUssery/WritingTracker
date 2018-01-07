@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Story {
@@ -15,6 +19,13 @@ public class Story {
 	private String title;
 	
 	private int wordcount;
+	
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User userId;
+	
+	//gets and sets
 
 	public int getId() {
 		return id;
@@ -38,6 +49,14 @@ public class Story {
 
 	public void setWordcount(int wordcount) {
 		this.wordcount = wordcount;
+	}
+
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
 	
 	

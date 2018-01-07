@@ -1,0 +1,50 @@
+<h1>Wondrous Wordcount Wordenator</h1>
+
+<form ng-hide="vm.selected"> 
+	<input type = "text" placeholder = "Your story" ng-model = "story.title" />
+	<input type = "text" placeholder = "Your wordcount" ng-model = "story.wordcount" />
+	<input type = "submit" value = "Add Story" ng-click = "vm.addStory(story); story = {};" />
+</form>
+<br>
+<div ng-show="vm.selected && !vm.editStory">
+	
+	<h2>{{vm.selected.story}}</h2>
+	{{vm.selected.wordcount}}
+	<button ng-click="vm.setEditStory()">Edit</button>
+	<button ng-click= "vm.displayTable(null)">Return</button>
+</div>
+<br>
+
+<form ng-show="vm.editStory">
+	<input type = "text" placeholder = "Story Title" ng-model = "vm.editStory.title" />
+	<input type = "text" placeholder = "Word Count" ng-model = "vm.editStory.wordcount" />
+	<input type = "submit" value = "Save" ng-click = "vm.updateStory(vm.editStory); vm.editStory = null;" />
+	<input type = "submit" value = "Cancel" ng-click = "vm.editStory = null" /> 
+</form>
+
+<form ng-show="vm.editStory">
+	<input type = "text" placeholder = "Story Name" ng-model = "vm.editStory.title" />
+	<input type = "text" placeholder = "Story Word Count" ng-model = "vm.editStory.wordcount" />
+	<input type = "submit" value = "Save" ng-click = "vm.updateStory(vm.editStory); vm.editStory = null;" />
+	<input type = "submit" value = "Cancel" ng-click = "vm.editStory = null" /> 
+</form>
+<br>
+<div>
+	<table ng-hide="vm.selected"> 
+		<tr>
+			<th> Story </th>
+			<th> Word Count </th>
+		</tr>
+		<tr ng-repeat = "story in vm.story" >
+			<td ng-click = "vm.displayStory(story)">
+				{{story.title}}
+			</td>
+			<td>
+				{{story.wordcount}}
+			</td>
+			<td>
+				<button ng-click = "vm.destroyStory(story)" >Delete</button>
+			</td>
+		</tr>
+	</table>
+</div>

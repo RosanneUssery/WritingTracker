@@ -1,0 +1,44 @@
+angular.module('appModule')
+	.component('todoList', {
+		templateUrl : 'app/appModule/todoList/todoList.component.html',
+		controller : function (todoService) {
+			var vm = this;
+			
+			vm.todo = []
+			
+			var reload = function() {
+				todoService.index()
+				.then(function(response) {
+					vm.todo = response.data;
+				}) 
+				.catch(console.error)
+
+			}
+			reload();
+			
+			vm.addTodo = function(todo) {
+				todoService.create(todo)
+				.then(function(response){
+					reload()
+				})
+				.catch(console.error)
+			}
+			
+			vm.destroyTodo = function(todo) {
+				todoService.destroy(todo)
+				.then(function(response){
+					reload()
+				})
+				.catch(console.error)
+			}
+			
+			vm.updateTodo = function(todo) {
+				todoService.update(todo)
+				.then(function(response){
+					reload()
+				})
+				.catch(console.error)
+			}
+		},
+		controllerAs : "vm"
+	})

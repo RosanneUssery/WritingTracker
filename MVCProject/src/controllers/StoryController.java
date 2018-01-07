@@ -2,6 +2,9 @@ package controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,29 +26,29 @@ public class StoryController {
 		return "pong";
 	}
 	
-	@RequestMapping(path="story", method=RequestMethod.GET)
-	public List<Story> index() {
-		return storyDAO.index();
+	@RequestMapping(path = "/user/{uid}/story", method = RequestMethod.GET)
+	public List<Story> index(HttpServletRequest req, HttpServletResponse resp, @PathVariable("uid") int uid) {
+		return storyDAO.index(uid);
 	}
 	
-	@RequestMapping(path="story/{id}", method=RequestMethod.GET)
-	public Story show(@PathVariable int id) {
-		return storyDAO.show(id);
+	@RequestMapping(path = "/user/{uid}/story/{tid}", method = RequestMethod.GET)
+	public Story show(HttpServletRequest req, HttpServletResponse res, @PathVariable("uid") int uid, @PathVariable("tid") int tid) {
+		return storyDAO.show(uid, tid);
 	}
 	
-	@RequestMapping(path="story", method=RequestMethod.POST)
-	public Story create(@RequestBody String json) {
-		return storyDAO.create(json);
+	@RequestMapping(path = "/user/{uid}/story", method = RequestMethod.POST) 
+	public Story create(HttpServletRequest req, HttpServletResponse res, @PathVariable("uid") int uid, @RequestBody String json) {
+		return storyDAO.create(uid, json);
 	}
 	
-	@RequestMapping(path="story/{id}", method=RequestMethod.PUT)
-	public Story update(@PathVariable int id, @RequestBody String json) {
-		return storyDAO.update(id, json);
+	@RequestMapping(path = "/user/{uid}/story/{tid}", method = RequestMethod.PUT)
+	public Story update(HttpServletRequest req, HttpServletResponse res, @PathVariable("uid") int uid, @PathVariable("tid") int tid,  @RequestBody String json) {
+		return storyDAO.update(uid, tid, json);
 	}
 	
-	@RequestMapping(path="story/{id}", method=RequestMethod.DELETE)
-	public boolean destroy(@PathVariable int id) {
-		return storyDAO.destroy(id);
+	@RequestMapping(path = "/user/{uid}/story/{tid}", method = RequestMethod.DELETE)
+	public Boolean destroy(HttpServletRequest req, HttpServletResponse res, @PathVariable("uid") int uid, @PathVariable("tid") int tid) {
+		return storyDAO.destroy(uid, tid);
 	}
 
 }

@@ -11,7 +11,7 @@
 	<h2>{{vm.selected.story}}</h2>
 	{{vm.selected.wordcount}}
 	<button ng-click="vm.setEditStory()">Edit</button>
-	<button ng-click= "vm.displayTable()">Return</button>
+	<button ng-click= "vm.displayTable(null)">Return</button>
 </div>
 <br>
 

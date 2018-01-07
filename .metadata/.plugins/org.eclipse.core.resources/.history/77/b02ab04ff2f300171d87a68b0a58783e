@@ -52,7 +52,7 @@ angular.module('appModule')
 	            vm.selected = null;
 	        }
 	        
-	        vm.displayStory= function(story) {
+	        vm.displayStory= function(todo) {
 	                vm.selected = story;
 	        }
 			

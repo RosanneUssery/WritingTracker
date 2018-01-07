@@ -4,6 +4,10 @@ angular.module('appModule')
 		controller : function (wordService) {
 			var vm = this;
 			
+			vm.selected = null;
+			
+			vm.editStory = null;
+			
 			vm.story = []
 			
 			var reload = function() {
@@ -39,6 +43,19 @@ angular.module('appModule')
 				})
 				.catch(console.error)
 			}
+			
+			vm.setEditStory= function() {
+	                vm.editStory = angular.copy(vm.selected);
+	        }
+	        
+	        vm.displayTable = function() {
+	            vm.selected = null;
+	        }
+	        
+	        vm.displayStory= function(story) {
+	                vm.selected = story;
+	        }
+			
 		},
 		controllerAs : "vm"
 	})

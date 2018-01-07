@@ -7,6 +7,7 @@
 </form>
 <br>
 <div ng-show="vm.selected && !vm.editStory">
+	
 	<div>Title : {{vm.selected.title}}</div>
 	<div>Word Count : {{vm.selected.wordcount}}</div>
 	<button ng-click="vm.setEditStory()">Edit</button>
@@ -21,6 +22,12 @@
 	<input type = "submit" value = "Cancel" ng-click = "vm.editStory = null" /> 
 </form>
 
+<form ng-show="vm.editStory">
+	<input type = "text" placeholder = "Story Name" ng-model = "vm.editStory.title" />
+	<input type = "text" placeholder = "Story Word Count" ng-model = "vm.editStory.wordcount" />
+	<input type = "submit" value = "Save" ng-click = "vm.updateStory(vm.editStory); vm.editStory = null;" />
+	<input type = "submit" value = "Cancel" ng-click = "vm.editStory = null" /> 
+</form>
 <br>
 <div>
 	<table ng-hide="vm.selected"> 

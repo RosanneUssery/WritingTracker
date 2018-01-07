@@ -1056,3 +1056,12 @@ java.lang.Exception
 
 !ENTRY org.eclipse.lsp4e 1 0 2018-01-07 14:32:50.537
 !MESSAGE Non IFiles not supported yet
+
+!ENTRY org.eclipse.jface.text 2 0 2018-01-07 14:36:45.750
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-01-07 14:36:45.766
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.lsp4e 1 0 2018-01-07 14:41:18.438
+!MESSAGE Non IFiles not supported yet

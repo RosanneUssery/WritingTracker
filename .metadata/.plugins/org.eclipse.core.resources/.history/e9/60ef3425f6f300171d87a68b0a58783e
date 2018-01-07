@@ -45,7 +45,7 @@ angular.module('appModule')
 			}
 			
 			vm.setEditStory= function() {
-	                vm.editStory = angular.copy(vm.selected);
+	                vm.editStory = vm.selected;
 	        }
 	        
 	        vm.displayTable = function() {

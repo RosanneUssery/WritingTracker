@@ -1,0 +1,6 @@
+body {
+	background-image: url("../images/woodenwords.jpg");
+	background-repeat: no-repeat;
+	color: white;
+}
+

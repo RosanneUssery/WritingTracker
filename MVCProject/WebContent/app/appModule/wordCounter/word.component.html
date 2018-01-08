@@ -1,6 +1,7 @@
 <h1>Wondrous Wordcount Wordenator</h1>
 
 <form ng-hide="vm.selected"> 
+<h3>Add a Story:</h3>
 	<input type = "text" placeholder = "Your story" ng-model = "story.title" />
 	<input type = "text" placeholder = "Your wordcount" ng-model = "story.wordcount" />
 	<input type = "submit" value = "Add Story" ng-click = "vm.addStory(story); story = {};" />
@@ -23,21 +24,27 @@
 
 <br>
 <div>
-	<table ng-hide="vm.selected"> 
-		<tr>
-			<th> Story </th>
-			<th> Word Count </th>
-		</tr>
-		<tr ng-repeat = "story in vm.story" >
-			<td ng-click = "vm.displayStory(story)">
-				{{story.title}}
-			</td>
-			<td>
-				{{story.wordcount}}
-			</td>
-			<td>
-				<button ng-click = "vm.destroyStory(story)" >Delete</button>
-			</td>
-		</tr>
-	</table>
+	<div class ="row">
+		<div class = "col-lg-3"></div>
+		<div class = "col-lg-6">
+			<table ng-hide="vm.selected"> 
+				<tr>
+					<th> Story </th>
+					<th> Word Count </th>
+				</tr>
+				<tr ng-repeat = "story in vm.story" >
+					<td ng-click = "vm.displayStory(story)">
+						{{story.title}}
+					</td>
+					<td>
+						{{story.wordcount}}
+					</td>
+					<td>
+						<button ng-click = "vm.destroyStory(story)" >Delete</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class = "col-lg-3"></div>
+	</div>
 </div>

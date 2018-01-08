@@ -28,7 +28,7 @@ angular.module('appModule')
 				.catch(console.error)
 			}
 			
-			vm.destoyStory = function(story) {
+			vm.destroyStory = function(story) {
 				wordService.destroy(story)
 				.then(function(response){
 					reload()
@@ -39,6 +39,7 @@ angular.module('appModule')
 			vm.updateStory = function(story) {
 				wordService.update(story)
 				.then(function(response){
+					vm.selected = response.data;
 					reload()
 				})
 				.catch(console.error)

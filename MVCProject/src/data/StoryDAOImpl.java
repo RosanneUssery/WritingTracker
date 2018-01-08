@@ -56,6 +56,7 @@ public class StoryDAOImpl implements StoryDAO{
 			Story storyManaged = em.find(Story.class, tid);
 			Story changed = mapper.readValue(json, Story.class);
 			storyManaged.setTitle(changed.getTitle());
+			storyManaged.setWordcount(changed.getWordcount());
 			return storyManaged;
 		}
 		catch (Exception e) {

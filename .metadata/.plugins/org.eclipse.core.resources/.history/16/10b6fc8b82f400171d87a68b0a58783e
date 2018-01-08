@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html ng-app="appModule">
+
+<head>
+  <meta charset="utf-8">
+  <title>Wondrous Wordcount Wordenator</title>
+	<script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+	<script src= "app/appModule/app.module.js"></script>
+	<script src= "app/appModule/wordCounter/word.component.js"></script>
+	<script src= "app/appModule/word.service.js"></script>
+	<link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  
+  <word-count></word-count>
+  
+</body>
+</html>

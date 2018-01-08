@@ -11,5 +11,5 @@ This is a tool intended for writers to track their wordcounts across multiple wo
 ### Project Status
 * Add button works and populates to the database
 * Retrieve function works and pulls from the database
-* Update updates the title, but not the word count
-* Delete does not yet work
+* Update updates the title and wordcount
+* Delete removes the title from the database and website

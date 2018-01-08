@@ -1,0 +1,8 @@
+body {
+	background-image: url("../images/woodenwords.jpg");
+	background-repeat: no-repeat;
+}
+
+h1 {
+	text-align: center;'
+}

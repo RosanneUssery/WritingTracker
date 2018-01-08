@@ -48,6 +48,7 @@ public class StoryController {
 	
 	@RequestMapping(path = "/user/{uid}/story/{tid}", method = RequestMethod.DELETE)
 	public Boolean destroy(HttpServletRequest req, HttpServletResponse res, @PathVariable("uid") int uid, @PathVariable("tid") int tid) {
+		System.out.println(tid);
 		return storyDAO.destroy(uid, tid);
 	}
 
